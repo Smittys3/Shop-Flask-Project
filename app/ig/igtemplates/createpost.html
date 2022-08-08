@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    THIS IS THE CREATE POST PAGE
+    <form class="container" method="POST">
+        {{ form.hidden_tag() }}
+
+        {{ form.title(class='form-control', placeholder='Title', autocomplete='off') }}
+        {{ form.img_url(class='form-control', placeholder='Image Url', autocomplete='off') }}
+        {{ form.caption(class='form-control', placeholder='Caption', autocomplete='off') }}
+        {{ form.submit(class='btn btn-primary') }}
+    </form>
+{% endblock %}

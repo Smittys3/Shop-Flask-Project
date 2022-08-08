@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        {% for m in merch %}
+            <div class="card text-decoration-none text-dark" style="width: 18rem;">
+                <img src="{{ m.img_url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <p class="card-text">Name: {{ m.name }}</p>
+                <p class="card-text">Price: ${{ m.price }}</p>
+                <p class="card-text">Description: {{ m.description }}</p>
+                <a href="{{ url_for('shop.addCart', name=m.name) }}" class="btn btn-success">Add to Cart</a> 
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

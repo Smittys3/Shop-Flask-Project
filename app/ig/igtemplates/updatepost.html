@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    THIS IS THE UPDATE POST PAGE
+    <form class="container" method="POST">
+        {{ form.hidden_tag() }}
+
+        {{ form.title(class='form-control', placeholder='Title', autocomplete='off', value=post.title) }}
+        {{ form.img_url(class='form-control', placeholder='Image Url', autocomplete='off', value=post.img_url) }}
+        {{ form.caption(class='form-control', placeholder='Caption', autocomplete='off', value=post.caption) }}
+        {{ form.submit(class='btn btn-primary') }}
+    </form>
+{% endblock %}

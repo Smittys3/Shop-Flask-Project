@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="row">
+        {% for c in cart %}
+            <div class="card text-decoration-none text-dark" style="width: 18rem;">
+                <img src="{{ c.img_url }}" class="card-img-top" alt="...">
+                <div class="card-body">
+                <p class="card-text">Name: {{ c.name }}</p>
+                <p class="card-text">Price: ${{ c.price }}</p>
+                <p class="card-text">Description: {{ c.description }}</p>
+                <a href="{{ url_for('shop.removeCart', name = c.name)}}" class="btn btn-danger">Remove</a>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <b>
+        Items in Cart = {{ total }}
+        <a href="{{ url_for('shop.removeall') }}" class="btn btn-danger">Remove ALL Items</a>
+    <br>
+{% endblock %}

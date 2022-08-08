@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <div class="container justify-content-center">
+        {% for p in posts %}
+            <a class="mx-auto card text-decoration-none text-dark" style="width: 18rem;" href="{{ url_for('ig.getSinglePost', post_id=p.id) }}">
+                <img src="{{ p.img_url }}" class="card-img-top" alt="{{ p.title }}">
+                <div class="card-body">
+                <h5 class="card-title">{{ p.title }} - {{ p.author.username }}</h5>
+                <p class="card-text">{{ p.caption }}</p>
+                <small>
+                    {{ moment(p.date_created).fromNow() }}
+                </small>
+                </div>
+            </a>
+        {% endfor %}
+    </div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% for x in names %}
+        
+            <div class="card" style="width: 18rem;">
+                <!-- <img src="{{ x['img'] }}" class="card-img-top" alt="..."> -->
+                <div class="card-body">
+                    <h5 class="card-title">{{ x.username }}</h5>
+                    {% if current_user.is_authenticated %}
+                        {% if current_user.id == x.id %}
+
+                        {% elif x.flag %}
+                            <a class="btn btn-danger" href="{{ url_for('ig.unfollowUser', user_id=x.id) }}">Unfollow</a>
+                        {% else %}
+                            <a class="btn btn-primary" href="{{ url_for('ig.followUser', user_id=x.id) }}">Follow</a>
+                        {% endif %}
+                    {% endif %}
+                </div>
+            </div>
+    {% endfor %}
+
+
+    {{ hello }}
+
+{% endblock %}

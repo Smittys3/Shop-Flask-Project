@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+
+<div class="row">
+    {% for p in team %}
+        <div class="card" style="width: 18rem;">
+            <img src="{{ p.img_url }}" class="card-img-top" alt="...">
+            <div class="card-body">
+            <h5 class="card-title">{{ p.name }}</h5>
+            <p class="card-text">
+                {{ p.ability }}
+                <ul>
+                    <li>{{ p.hp }}</li>
+                    <li>{{ p.attack }}</li>
+                    <li>{{ p.defense }}</li>
+                </ul>
+            </p>
+            <a href="/catch/{{ p.name }}" class="btn btn-primary">Catch</a>
+            </div>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
